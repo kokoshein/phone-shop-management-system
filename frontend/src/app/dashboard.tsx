@@ -2,7 +2,8 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Alert
+    Alert,
+    Button
 } from "react-native";
 import { useEffect, useState } from "react";
 import {
@@ -193,6 +194,15 @@ export default function Dashboard() {
                     }}
                 >
                     Low Stock
+                    <Button
+                        title="Stock History"
+                        onPress={() =>
+                            router.push(
+                                "/stock-history" as any
+                                
+                            )
+                        }
+                    />
                 </Text>
             </TouchableOpacity>
             <TouchableOpacity
