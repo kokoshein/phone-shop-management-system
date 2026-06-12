@@ -66,3 +66,11 @@ CREATE TABLE IF NOT EXISTS repairs (
     status TEXT DEFAULT 'Pending',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE IF NOT EXISTS stock_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    product_id INTEGER,
+    product_name TEXT,
+    action_type TEXT,
+    quantity INTEGER,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

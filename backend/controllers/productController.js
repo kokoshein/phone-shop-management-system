@@ -1,5 +1,7 @@
 const Product = require("../models/Product");
 const db = require("../database/db");
+const StockHistory =
+    require("../models/StockHistory");
 exports.getProducts = (req, res) => {
     Product.getAll((err, rows) => {
         if (err) {
@@ -121,5 +123,34 @@ exports.restockProduct = (req, res) => {
 
         }
     );
+    Product.getAll((err, products) => {
 
+        const product =
+            products.find(
+                p => p.id ==
+                    req.params.id
+            );
+
+        if (product) {
+
+            StockHistory.create(
+                {
+                    product_id:
+                        product.id,
+
+                    product_name:
+                        product.product_name,
+
+                    action_type:
+                        "RESTOCK",
+
+                    quantity:
+                        quantity
+                },
+                () => { }
+            );
+
+        }
+
+    });
 };

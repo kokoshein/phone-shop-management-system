@@ -3,6 +3,8 @@ const Product =
     require("../models/Product");
 const Invoice =
     require("../models/Invoice");
+const StockHistory =
+    require("../models/StockHistory");
 exports.getSales = (req, res) => {
 
     Sale.getAll((err, rows) => {
@@ -130,7 +132,15 @@ exports.createSale = (req, res) => {
 
                                 }
                             );
-
+                            StockHistory.create(
+                                {
+                                    product_id: product.id,
+                                    product_name: product.product_name,
+                                    action_type: "SALE",
+                                    quantity: req.body.quantity
+                                },
+                                () => { }
+                            );
                         }
                     );
 

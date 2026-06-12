@@ -1,7 +1,6 @@
-
 PUT http://192.168.1.119:5000/api/products/restock/1
 Content-Type: application/json
 
 {
-  "quantity": 5
+    "quantity": 5
 }

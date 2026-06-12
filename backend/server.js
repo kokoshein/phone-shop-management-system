@@ -17,10 +17,13 @@ const invoiceRoutes =
     require("./routes/invoiceRoutes");
 const reportRoutes =
     require("./routes/reportRoutes");
+const stockHistoryRoutes =
+    require("./routes/stockHistoryRoutes");
 const app = express();   // <-- ဒီ line က app.use ထက် အရင်လာရမယ်
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/stock-history", stockHistoryRoutes);
 
 app.get("/", (req, res) => {
     res.json({
