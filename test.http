@@ -1,4 +1,4 @@
-PUT http://192.168.1.119:5000/api/products/restock/1
+PUT http://192.168.1.119:5000/api/reports/advanced
 Content-Type: application/json
 
 {
